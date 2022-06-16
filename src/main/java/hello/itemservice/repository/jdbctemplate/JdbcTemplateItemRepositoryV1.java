@@ -4,7 +4,6 @@ import hello.itemservice.domain.Item;
 import hello.itemservice.repository.ItemRepository;
 import hello.itemservice.repository.ItemSearchCond;
 import hello.itemservice.repository.ItemUpdateDto;
-import java.sql.Array;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
@@ -109,7 +108,6 @@ public class JdbcTemplateItemRepositoryV1 implements ItemRepository {
 
         log.info("sql={}", sql);
 
-        template.query(sql, itemRowMapper());
-        return null;
+        return template.query(sql, itemRowMapper(), param.toArray());
     }
 }
