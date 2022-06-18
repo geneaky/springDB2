@@ -13,20 +13,23 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
+@Transactional
 class ItemRepositoryTest {
 
     @Autowired
     ItemRepository itemRepository;
 
-    @Autowired
+ /*   @Autowired
     PlatformTransactionManager transactionManager;
 
-    TransactionStatus status;
+    TransactionStatus status;*/
+/*
     @BeforeEach
     void beforeEach() {
         //트랜잭션 시작
@@ -44,6 +47,7 @@ class ItemRepositoryTest {
         //트랜잭션 롤백
         transactionManager.rollback(status);
     }
+*/
 
     @Test
     void save() {
